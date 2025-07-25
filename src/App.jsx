@@ -16,7 +16,7 @@ const App = () => {
       <h1>📚 Book Library</h1>
       <input
         type="text"
-        placeholder="Enter the book title name"
+        placeholder="Enter book title name"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />

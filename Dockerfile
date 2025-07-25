@@ -1,13 +1,9 @@
-### STAGE 1: Download and Update the System ###
-FROM node:22-alpine AS build
+FROM node:18-alpine AS builder
 WORKDIR /app
-COPY package*.json .
+COPY . .
 RUN npm install
-COPY . ./
-RUN npm run build 
-RUN ls /app
+RUN npm run build
 
-### STAGE 2: Run ###
-FROM nginx:1.17.1-alpine
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /app/dist /usr/share/nginx/html
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf

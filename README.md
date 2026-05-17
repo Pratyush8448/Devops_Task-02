@@ -73,20 +73,23 @@ Code Push
 ---
 
 ## 📁 Repository Structure
-
+ 
 ```
 ├── .github/
-│   └── workflows/
-│       └── devsecops-pipeline.yml   # GitHub Actions CI/CD workflow
-├── terraform/
-│   └── *.tf                         # Terraform infrastructure files
-├── k8s/
-│   ├── deployment.yaml              # Kubernetes deployment manifests
-│   └── sealed-secret.yaml          # Encrypted Sealed Secret manifest
+│   └── workflows/                   # GitHub Actions CI/CD pipeline definitions
+├── k8s/                             # Kubernetes manifests (deployment, sealed secrets)
+├── src/                             # Application source code (React/JSX)
+├── .gitignore                       # Git ignore rules
 ├── Dockerfile                       # Docker image definition
-└── README.md
+├── README.md                        # Project documentation
+├── eslint.config.js                 # ESLint configuration for code quality
+├── index.html                       # Application entry HTML
+├── nginx.conf                       # Nginx web server configuration
+├── package-lock.json                # Locked dependency tree
+├── package.json                     # Node.js project metadata and dependencies
+└── vite.config.js                   # Vite bundler configuration
 ```
-
+ 
 ---
 
 ## ⚙️ CI/CD Pipeline Workflow
